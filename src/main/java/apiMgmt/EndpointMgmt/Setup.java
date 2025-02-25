@@ -10,13 +10,12 @@ import java.util.Map;
 
 public class Setup {
     private static final String ENDPOINT_FILE_PATH = "/src/main/java/apiMgmt/Resources/endpoints.json";
-    private DocumentContext documentContext;
     private final Map<Endpoints, String> endpointPaths = new EnumMap<>(Endpoints.class);
 
     public Setup() {
         File endpointFile = new File(System.getProperty("user.dir") + ENDPOINT_FILE_PATH);
         try {
-            documentContext = JsonPath.parse(endpointFile);
+            DocumentContext documentContext = JsonPath.parse(endpointFile);
 
             // Pre-fetch base URL
             String baseUrl = documentContext.read("$.baseUrls.dev");
@@ -42,9 +41,9 @@ public class Setup {
             endpointPaths.put(Endpoints.deleteMessage, baseUrl + documentContext.read("$.endpoints.messages.deleteMessage"));
 
             //Pre-fetch authentication endpoints
-            endpointPaths.put(Endpoints.register,baseUrl+documentContext.read("$.endpoints.authentication.register"));
-            endpointPaths.put(Endpoints.login,baseUrl+documentContext.read("$.endpoints.authentication.login"));
-            endpointPaths.put(Endpoints.logout,baseUrl+documentContext.read("$.endpoints.authentication.logout"));
+            endpointPaths.put(Endpoints.register,baseUrl+ documentContext.read("$.endpoints.authentication.register"));
+            endpointPaths.put(Endpoints.login,baseUrl+ documentContext.read("$.endpoints.authentication.login"));
+            endpointPaths.put(Endpoints.logout,baseUrl+ documentContext.read("$.endpoints.authentication.logout"));
 
 
         } catch (IOException e) {

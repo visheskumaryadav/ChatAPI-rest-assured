@@ -1,5 +1,6 @@
 package apiMgmt.PayloadMgmt.authentication.Register;
 
+import apiMgmt.PayloadMgmt.SharedPojos.Avatar;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -18,5 +19,5 @@ public class UserPojo {
     private int __v;
 
 //    @JsonProperty("avatar")
-    private AvatarPojo avatar;
+    private Avatar avatar;
 }
