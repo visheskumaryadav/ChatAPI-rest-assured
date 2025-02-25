@@ -1,0 +1,32 @@
+{
+  "baseUrls": {
+    "dev": "https://api.freeapi.app/api/v1"
+  },
+  "endpoints": {
+    "chats": {
+      "getUserChatList": "/chat-app/chats",
+      "getAvailableUsers": "/chat-app/chats/users",
+      "createOneOnOneChat": "/chat-app/chats/c/{receiverId}",
+      "deleteOneOnOneChat": "/chat-app/chats/remove/{chatId}"
+    },
+    "groupChats": {
+      "createGroupChat": "/chat-app/chats/group",
+      "getGroupChatDetails": "/chat-app/chats/group/{chatId}",
+      "deleteGroupChat": "/chat-app/chats/group/{chatId}",
+      "updateGroupChatName": "/chat-app/chats/group/{chatId}",
+      "addParticipant": "/chat-app/chats/group/{chatId}/{participantId}",
+      "removeParticipant": "/chat-app/chats/group/{chatId}/{participantId}",
+      "leaveGroupChat": "/chat-app/chats/leave/group/{chatId}"
+    },
+    "messages": {
+      "getAllMessages": "/chat-app/messages/{chatId}",
+      "sendMessage": "/chat-app/messages/{chatId}",
+      "deleteMessage": "/chat-app/messages/{chatId}/{messageId}"
+    },
+    "authentication": {
+      "register": "/users/register",
+      "login": "/users/login",
+      "logout": "/users/logout"
+    }
+  }
+}
